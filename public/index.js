@@ -1,12 +1,14 @@
 // import {WebSocketServer} from "/ws";
 
+// const { get } = require("https");
+
 const wsClient = new WebSocket("ws://localhost:8081");
 
 wsClient.addEventListener('open', () => {
 
     wsClient.addEventListener("message", (message) => {
 
-        console.log(`Message recieved:\n${message.data}`);
+       document.getElementById("serverResponse").innerHTML += `<p>${message.data}</p> <br>`;
     });
 });
 
